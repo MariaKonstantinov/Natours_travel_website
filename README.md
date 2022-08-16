@@ -1,4 +1,4 @@
-# Project 3: Natours travel website
+# Natours travel website
 ### Overview  
 * Project Description  
 * Project Technologies 
