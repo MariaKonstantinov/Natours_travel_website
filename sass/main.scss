@@ -44,7 +44,7 @@ body {
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(/media/hero.jpg);
+    url(../media/hero.jpg);
   /* whatever the width of the viewport is, cover always fits the element in the box */
   background-size: cover;
   /* whatever the width of the viewport is, the top of image will stay at the top of container */
