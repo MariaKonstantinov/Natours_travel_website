@@ -5,13 +5,15 @@
   margin: 0;
   padding: 0;
   /* borders and padding are no longer added to total width/heigh of elements */
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 /* we need to change our px to rem - as 1 rem is exactly the root font-size - 
 we do 10px as our root font-size, 1 rem is 10px, we devide now all px value of element by 10 */
 /* best practice to have this value in % - we devide 10 by 16 (default font-size is 16px) - 62.5% */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 /* general styles */
 body {
@@ -21,13 +23,18 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* Header section */
 .header {
   /* at every point the size of this element should be 95% of the viewport height */
   height: 95vh;
-  background-image: linear-gradient(rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../media/hero.jpg);
+  background-image: linear-gradient(
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url(../media/hero.jpg);
   /* whatever the width of the viewport is, cover always fits the element in the box */
   background-size: cover;
   /* whatever the width of the viewport is, the top of image will stay at the top of container */
@@ -35,49 +42,56 @@ body {
   /* clip-path - clips the images */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    /* enough to specify just 1 parameter - height, width will be automatically calc by browser */
-    height: 3.5rem;
-    /* we can add same animation function in diff places - ex when we hover over logo - logo:hover */ }
-  .header__text-box {
-    position: absolute;
-    /* top and left prop are related to parent */
-    top: 40%;
-    left: 50%;
-    /* to center the element - in relation to the element itself */
-    transform: translate(-50%, -50%);
-    /* to center text that we have inside the box - use text-align: center */
-    text-align: center; }
-  .header__text {
-    color: #fff;
-    text-transform: uppercase;
-    /* Backface-visibility determins if the backpart of the element if visible/hidden when we transform it - fixes "shaking" of animation */
-    backface-visibility: hidden;
-    margin-bottom: 6rem; }
-  .header__text_type_main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /* 2 properties for animation to work - name and duration */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /* some additional useful animation functions */
-    /* animation-delay: 3s; */
-    /* animation-iteration-count: 3; */ }
-  .header__text_type_sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /* Shorthand for animation to work */
-    animation: moveInRight 1s ease-out; }
+  position: relative;
+}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header__logo {
+  /* enough to specify just 1 parameter - height, width will be automatically calc by browser */
+  height: 3.5rem;
+  /* we can add same animation function in diff places - ex when we hover over logo - logo:hover */
+}
+.header__text-box {
+  position: absolute;
+  /* top and left prop are related to parent */
+  top: 40%;
+  left: 50%;
+  /* to center the element - in relation to the element itself */
+  transform: translate(-50%, -50%);
+  /* to center text that we have inside the box - use text-align: center */
+  text-align: center;
+}
+.header__text {
+  color: #fff;
+  text-transform: uppercase;
+  /* Backface-visibility determins if the backpart of the element if visible/hidden when we transform it - fixes "shaking" of animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+.header__text_type_main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  /* 2 properties for animation to work - name and duration */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* some additional useful animation functions */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: 3; */
+}
+.header__text_type_sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  /* Shorthand for animation to work */
+  animation: moveInRight 1s ease-out;
+}
 
 /* Header Animations */
 @keyframes moveInLeft {
@@ -85,26 +99,34 @@ body {
     opacity: 0;
     /* X is from left to right (horizontally), Y is from top to bottom (vertically) */
     /* positive value - from left to right, negative value (-100) goes from right to left */
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
   80% {
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
   100% {
     opacity: 1;
     /* translate (0) to look as initial state */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
     /* X is from left to right (horizontally), Y is from top to bottom (vertically) */
     /* positive value - from left to right, negative value (-100) goes from right to left */
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
   80% {
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
   100% {
     opacity: 1;
     /* translate (0) to look as initial state */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /* Header Button Animations */
 @keyframes moveInUp {
@@ -112,65 +134,78 @@ body {
     opacity: 0;
     /* X is from left to right (horizontally), Y is from top to bottom (vertically) */
     /* positive value - from left to right, negative value (-100) goes from right to left */
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
   100% {
     opacity: 1;
     /* translate (0) to look as initial state */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /* Header Button */
 /* btn:link is a pseudo class, special state of a selector, when it is an anchor element, so it functions as a link */
 .btn {
   /* when the button is clicked */
   /* after pseudo element adds like a "virtual" element right after our element and we can style it */
-  /* ccreating a new class because we want only this specific animation for 1 specific button so we don't apply it to main btn-white class */ }
-  .btn:link, .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    /* we need inline-block to change default inline prop, to make it as a box element */
-    display: inline-block;
-    border-radius: 10rem;
-    /* a more easy way to do animation - use transition prop on the element itself, not on element: hover */
-    transition: all 0.2s;
-    /* as we have position: absolute for pseudo button, so we need to have position: relative for its parent container */
-    position: relative;
-    font-size: 1.6rem; }
-  .btn:hover {
-    /* to move element up along Y we need to use negative value */
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    /* when we hover the button we want styles for pseudo element to be activated */ }
-    .btn:hover::after {
-      transform: scaleX(1.4) scaleY(1.6);
-      /* to make smth fade out */
-      opacity: 0; }
-  .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-  .btn_type_white {
-    background-color: #fff;
-    color: #777; }
-    .btn_type_white::after {
-      background-color: #fff; }
-  .btn::after {
-    /* for pseudo element to work we need to mandatory specify "content" prop (we can even make it empty - "") */
-    content: "";
-    /* we need to mandatory specify "display" prop as well */
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    /* to put our pseudo button right behind the real button - apply position: absolute - and make it's parent element have position: relative */
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* z-index defines position of elements when they are placed one covering another */
-    z-index: -1;
-    /* we put the transition property on the element itself, not on element: hover */
-    transition: all 0.4s; }
-  .btn_type_animated {
-    /* prop: animation name, duration, timing function and delay */
-    animation: moveInUp 0.5s ease-out 0.75s;
-    /* animation fill mode - backwards - applies styles of 0% before animation starts */
-    animation-fill-mode: backwards; }
+  /* ccreating a new class because we want only this specific animation for 1 specific button so we don't apply it to main btn-white class */
+}
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  /* we need inline-block to change default inline prop, to make it as a box element */
+  display: inline-block;
+  border-radius: 10rem;
+  /* a more easy way to do animation - use transition prop on the element itself, not on element: hover */
+  transition: all 0.2s;
+  /* as we have position: absolute for pseudo button, so we need to have position: relative for its parent container */
+  position: relative;
+  font-size: 1.6rem;
+}
+.btn:hover {
+  /* to move element up along Y we need to use negative value */
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* when we hover the button we want styles for pseudo element to be activated */
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  /* to make smth fade out */
+  opacity: 0;
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.btn_type_white {
+  background-color: #fff;
+  color: #777;
+}
+.btn_type_white::after {
+  background-color: #fff;
+}
+.btn::after {
+  /* for pseudo element to work we need to mandatory specify "content" prop (we can even make it empty - "") */
+  content: "";
+  /* we need to mandatory specify "display" prop as well */
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  /* to put our pseudo button right behind the real button - apply position: absolute - and make it's parent element have position: relative */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index defines position of elements when they are placed one covering another */
+  z-index: -1;
+  /* we put the transition property on the element itself, not on element: hover */
+  transition: all 0.4s;
+}
+.btn_type_animated {
+  /* prop: animation name, duration, timing function and delay */
+  animation: moveInUp 0.5s ease-out 0.75s;
+  /* animation fill mode - backwards - applies styles of 0% before animation starts */
+  animation-fill-mode: backwards;
+}
