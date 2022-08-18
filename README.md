@@ -23,7 +23,7 @@ HTML5, CSS3, Sass, Flexbox Layout, Grid Layout, Media Queries, Advanced CSS anim
 
 The project workflow is split into Sprints.
 
-:large_blue_diamond: SPRINT 1 :arrow_right: 19.08.22:
+:large_blue_diamond: SPRINT 1 :arrow_right: 20.08.22:
 
 :small_red_triangle_down: To do:
 
@@ -47,7 +47,7 @@ The project workflow is split into Sprints.
 
 - Booking
 
-:large_blue_diamond: SPRINT 2 :arrow_right: 20.08.22:
+:large_blue_diamond: SPRINT 2 :arrow_right: 22.08.22:
 
 :small_red_triangle_down: Complete sections:
 
@@ -57,7 +57,7 @@ The project workflow is split into Sprints.
 
 - Popup
 
-:large_blue_diamond: SPRINT 3 :arrow_right: 22.08.22:
+:large_blue_diamond: SPRINT 3 :arrow_right: 24.08.22:
 
 :small_red_triangle_down: Complete sections:
 
