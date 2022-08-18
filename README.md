@@ -25,7 +25,7 @@ The project workflow is split into Sprints.
 
 :large_blue_diamond: SPRINT 1 -> complete sections - 19.08.22:
 
-:white_check_mark: - Header 
+:white_check_mark: Header 
 
  - About 
 
