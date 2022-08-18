@@ -23,9 +23,9 @@ HTML5, CSS3, Sass, Flexbox Layout, Grid Layout, Media Queries, Advanced CSS anim
 
 The project workflow is split into Sprints.
 
-:large_blue_diamond: SPRINT 1 -> 19.08.22:
+:large_blue_diamond: SPRINT 1 :arrow_right: 19.08.22:
 
-- To do:
+:small_red_triangle_down: To do:
 
 :white_check_mark: Implement BEM structure
 
@@ -33,7 +33,7 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Implement the 7-1 CSS Architecture with Sass
 
-- Complete sections:
+:small_red_triangle_down: Complete sections:
 
 :white_check_mark: Header
 
@@ -47,9 +47,9 @@ The project workflow is split into Sprints.
 
 - Booking
 
-:large_blue_diamond: SPRINT 2 -> 20.08.22:
+:large_blue_diamond: SPRINT 2 :arrow_right: 20.08.22:
 
-- Complete sections:
+:small_red_triangle_down: Complete sections:
 
 - Footer
 
@@ -57,13 +57,13 @@ The project workflow is split into Sprints.
 
 - Popup
 
-:large_blue_diamond: SPRINT 3 -> 22.08.22:
+:large_blue_diamond: SPRINT 3 :arrow_right: 22.08.22:
 
-- Complete sections:
+:small_red_triangle_down: Complete sections:
 
 - Add Media Queries
 
-- To do:
+:small_red_triangle_down: To do:
 
 - Fix image responsiveness
 
