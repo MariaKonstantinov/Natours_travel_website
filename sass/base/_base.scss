@@ -1,0 +1,28 @@
+/* universal styles */
+*,
+/* we add the same rules for all pseudo elements by adding prop below */
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* borders and padding are no longer added to total width/heigh of elements */
+  box-sizing: inherit;
+}
+
+/* we need to change our px to rem - as 1 rem is exactly the root font-size - 
+we do 10px as our root font-size, 1 rem is 10px, we devide now all px value of element by 10 */
+/* best practice to have this value in % - we devide 10 by 16 (default font-size is 16px) - 62.5% */
+html {
+  font-size: 62.5%;
+}
+
+/* general styles */
+body {
+  /* properties related to font are usually inherited and placed in body section*/
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+}
