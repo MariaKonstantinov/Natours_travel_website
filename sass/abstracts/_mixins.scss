@@ -1,0 +1,11 @@
+// clearfix is a way for an element to clear its child elements automatically without additional markup, generally used in float layouts; always ned to specify the content property (even if it is empty "")
+// we will include this mixin in our grid, so the & will then transform into a row (row::after {})
+@mixin clearfix {
+  &::after {
+    content: "";
+    // standard version -> display: table
+    display: table;
+    // to clear both floats - left and right
+    clear: both;
+  }
+}

@@ -1,0 +1,54 @@
+/* Header Animations */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* X is from left to right (horizontally), Y is from top to bottom (vertically) */
+    /* positive value - from left to right, negative value (-100) goes from right to left */
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* translate (0) to look as initial state */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* X is from left to right (horizontally), Y is from top to bottom (vertically) */
+    /* positive value - from left to right, negative value (-100) goes from right to left */
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* translate (0) to look as initial state */
+    transform: translate(0);
+  }
+}
+
+/* Header Button Animations */
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    /* X is from left to right (horizontally), Y is from top to bottom (vertically) */
+    /* positive value - from left to right, negative value (-100) goes from right to left */
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* translate (0) to look as initial state */
+    transform: translate(0);
+  }
+}

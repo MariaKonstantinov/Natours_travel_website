@@ -1,0 +1,107 @@
+/* Header Button */
+/* btn:link is a pseudo class, special state of a selector, when it is an anchor element, so it functions as a link */
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* we need inline-block to change default inline prop, to make it as a box element */
+    display: inline-block;
+    border-radius: 10rem;
+
+    /* a more easy way to do animation - use transition prop on the element itself, not on element: hover */
+    transition: all 0.2s;
+
+    /* as we have position: absolute for pseudo button, so we need to have position: relative for its parent container */
+    position: relative;
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    /* to move element up along Y we need to use negative value */
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    /* when we hover the button we want styles for pseudo element to be activated */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* to make smth fade out */
+      opacity: 0;
+    }
+  }
+
+  /* when the button is clicked */
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &_type_white {
+    background-color: #fff;
+    color: #777;
+
+    &::after {
+      background-color: #fff;
+    }
+  }
+
+  /* after pseudo element adds like a "virtual" element right after our element and we can style it */
+  &::after {
+    /* for pseudo element to work we need to mandatory specify "content" prop (we can even make it empty - "") */
+    content: "";
+    /* we need to mandatory specify "display" prop as well */
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+
+    /* to put our pseudo button right behind the real button - apply position: absolute - and make it's parent element have position: relative */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index defines position of elements when they are placed one covering another */
+    z-index: -1;
+
+    /* we put the transition property on the element itself, not on element: hover */
+    transition: all 0.4s;
+  }
+
+  /* ccreating a new class because we want only this specific animation for 1 specific button so we don't apply it to main btn-white class */
+  &_type_animated {
+    /* prop: animation name, duration, timing function and delay */
+    animation: moveInUp 0.5s ease-out 0.75s;
+    /* animation fill mode - backwards - applies styles of 0% before animation starts */
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    // we display it like inline-block so we can use box properties on it (paddings, margins, etc)
+    display: inline-block;
+    text-decoration: none;
+    // we can use px with small values instead of rem
+    border-bottom: 1px solid $color-primary;
+    padding: 0.8rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    // to have the "move up button" effect
+    transform: translateY(-2px);
+    border-radius: 10rem;
+  }
+
+  /* when the button is clicked */
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}

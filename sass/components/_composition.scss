@@ -1,0 +1,46 @@
+.composition {
+  position: relative;
+  &__photo {
+    // it is better always to define width of images in %, it will scale with the viewport
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 0.6rem;
+    // when we set absolute position to an element, it will be placed according to a reference and the reference is the first parent it encounters, which has position set to smth -> we assign relative position to our .composition
+    position: absolute;
+    // the value of z-index here (10) - is really random because below at hover rule we just need to define a larger value (so that every image on hover goes infront -> it needs to have a higher z-index (in our case it's 20)
+    z-index: 10;
+    // transition 0.2s for a more smooth transition
+    transition: all 0.2s;
+
+    // green border properties - making green border around images
+    outline-offset: 2rem;
+
+    &_p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &_p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &_p3 {
+      // better to use % as a left distance value
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+      // green border properties - making green border around images
+      outline: 1.5rem solid $color-primary;
+    }
+  }
+  // when we hover the composition -> select the composition photo which is not hovered -> and decrese (scale) down their sizes so we have the effect of hovered image being zoomed in (increased in size)
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}

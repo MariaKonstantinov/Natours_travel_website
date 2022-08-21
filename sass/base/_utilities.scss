@@ -1,0 +1,17 @@
+// this class can be reused with different text elements to center them
+// we applied display: inline block to .heading-secondary, so if we set the parent block (.u-center-text) to text-align:center, then inline-block element inside of it will be treated as text and centered
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
