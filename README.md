@@ -17,7 +17,7 @@ All links represented in project serve educational purposes only. All the commen
 
 **:star: Project Technologies**
 
-HTML5, CSS3, Sass, Flexbox Layout, Grid Layout, Float Layout, Media Queries, Advanced CSS animations with @keyframes and background video effect, CSS architecture (component-based design, BEM Methodology, writing reusable code), NPM ecosystem.
+HTML5, CSS3, Sass, Grid Layout, Float Layout, Media Queries, Advanced CSS animations with @keyframes and background video effect, CSS architecture (component-based design, BEM Methodology, writing reusable code), NPM ecosystem.
 
 **:star: Project Roadmap**
 
