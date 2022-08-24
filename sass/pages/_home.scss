@@ -4,3 +4,27 @@
   //   negative margin-top moves element to the top
   margin-top: -20vh;
 }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../media/nat-4.jpg);
+  background-size: cover;
+
+  // negative marin to move .section-features up to cover the white space gap
+
+  margin-top: -10rem;
+
+  // we can skew the entire section
+  transform: skewY(-7deg);
+
+  // now we need to skew our feature-box with cards to the opposite 7deg, so they stay in 1 line, we could do it in .feature-box file, but it's a better practice to have all these instructions in one place here
+
+  // direct child selector ">" we select all children of .section-features, so "*" (for all)
+  & > * {
+    transform: skewY(7deg);
+  }
+}

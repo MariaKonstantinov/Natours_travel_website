@@ -1,0 +1,32 @@
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  //   we define font-size on our parent element (feature-box) and then the child element (paragraph) will inherit it, so we don't need to specify it in child element
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 0.6rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  //   setting animation transition for feature-box on hover
+  transition: transform 0.3s;
+
+  &__icon {
+    // the icon font is text in fact
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    // setting green gradient color of our icon
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    // webkit prefix
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  //   animation on hover
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
