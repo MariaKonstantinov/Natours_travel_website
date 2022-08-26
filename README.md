@@ -23,7 +23,7 @@ HTML5, CSS3, Sass, Grid Layout, Float Layout, Media Queries, Advanced CSS animat
 
 The project workflow is split into Sprints.
 
-:large_blue_diamond: SPRINT 1 :arrow_right: 24.08.22:
+:large_blue_diamond: SPRINT 1 :large_blue_diamond:
 
 :small_red_triangle_down: To do:
 
@@ -41,13 +41,13 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Features
 
-- Tours
+:white_check_mark: Tours
 
 - Stories
 
 - Booking
 
-:large_blue_diamond: SPRINT 2 :arrow_right: 26.08.22:
+:large_blue_diamond: SPRINT 2 :large_blue_diamond:
 
 :small_red_triangle_down: Complete sections:
 
@@ -57,7 +57,7 @@ The project workflow is split into Sprints.
 
 - Popup
 
-:large_blue_diamond: SPRINT 3 :arrow_right: 28.08.22:
+:large_blue_diamond: SPRINT 3 :large_blue_diamond:
 
 :small_red_triangle_down: Complete sections:
 
