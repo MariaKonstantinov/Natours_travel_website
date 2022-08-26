@@ -23,6 +23,7 @@ body {
   );
   // webkit prefix
   -webkit-background-clip: text;
+  background-clip: text;
   // we need to make text color transparent so that we could see the background linear-gradient green color, because the text sits on top of the clipped background
   color: transparent;
   letter-spacing: 0.2rem;

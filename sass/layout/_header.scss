@@ -12,6 +12,8 @@
   /* whatever the width of the viewport is, the top of image will stay at the top of container */
   background-position: top;
   /* clip-path - clips the images */
+  // making clip-path available in all browsers (except for Internet Explorer and Microsodt Edge)
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
   position: relative;
