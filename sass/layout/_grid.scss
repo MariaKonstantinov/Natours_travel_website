@@ -18,6 +18,7 @@
   //   ^="col-" will select all the elements in which the class attribute starts with "col-"; $="col-" this will select all the elements in which the class attribute ends with "col-";
   [class^="col-"] {
     // as we are using Float layouts in this project -> apply float: left
+    // float CSS property places element on the left/right side of its container, allowing text and inline elements to wrap around it
     float: left;
 
     &:not(:last-child) {

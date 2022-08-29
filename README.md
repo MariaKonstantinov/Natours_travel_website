@@ -43,7 +43,7 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Tours
 
-- Stories
+:white_check_mark: Stories
 
 - Booking
 

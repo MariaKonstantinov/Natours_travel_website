@@ -1,0 +1,18 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  //   we want the height to be exactly as parent container, thus 100%
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    // object-fit:cover is pretty similar to background-size:cover (with img elements); elements will fill the entire parent container while maintaining its aspect ratio
+    object-fit: cover;
+  }
+}

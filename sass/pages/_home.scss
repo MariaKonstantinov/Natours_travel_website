@@ -34,3 +34,10 @@
   padding: 25rem 0 20rem 0;
   margin-top: -10rem;
 }
+
+.section-stories {
+  padding: 15rem 0;
+
+  // we put position:relative here because our child conatiner with video has absolute position
+  position: relative;
+}
