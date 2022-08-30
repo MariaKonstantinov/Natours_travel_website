@@ -13,7 +13,7 @@
 This project was done in compliance with UDEMY Advanced CSS & Sass course (link below).
 
 The webpage was build using HTML5, CSS3 and Sass.
-All links represented in project serve educational purposes only. All comments in project files are aimed for personal use only and serve educational purposes only.
+All links in project serve educational purposes only. All comments in project files are aimed for personal use only and serve educational purposes only.
 
 **:star: Project Technologies**
 
