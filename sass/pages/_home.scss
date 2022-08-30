@@ -41,3 +41,32 @@
   // we put position:relative here because our child conatiner with video has absolute position
   position: relative;
 }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+}
+
+.book {
+  // at 0% we set white, at 50% we set white, and then at 50% we want transparent (so that we can see the img with landscape on that part)
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../media/nat-10.jpg);
+  // we can use either "cover" or "100%" here as a value
+  background-size: cover;
+  border-radius: 0.6rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}

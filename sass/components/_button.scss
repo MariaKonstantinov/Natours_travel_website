@@ -1,6 +1,8 @@
 /* Header Button */
 /* btn:link is a pseudo class, special state of a selector, when it is an anchor element, so it functions as a link */
 .btn {
+  // "&" translates here as a btn, so these styles below will be applied not only to link elements, but also btn element
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -16,6 +18,10 @@
     /* as we have position: absolute for pseudo button, so we need to have position: relative for its parent container */
     position: relative;
     font-size: $default-font-size;
+
+    // change for the button element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -32,7 +38,9 @@
   }
 
   /* when the button is clicked */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }

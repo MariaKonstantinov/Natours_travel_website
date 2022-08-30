@@ -13,11 +13,11 @@
 This project was done in compliance with UDEMY Advanced CSS & Sass course (link below).
 
 The webpage was build using HTML5, CSS3 and Sass.
-All links represented in project serve educational purposes only. All the comments included in project files are aimed for personal use only and serve educational purposes only.
+All links represented in project serve educational purposes only. All comments in project files are aimed for personal use only and serve educational purposes only.
 
 **:star: Project Technologies**
 
-HTML5, CSS3, Sass, Grid Layout, Float Layout, Media Queries, Advanced CSS animations with @keyframes and background video effect, CSS architecture (component-based design, BEM Methodology, writing reusable code), NPM ecosystem.
+HTML5, CSS3, Sass, Grid Layout, Float Layout, Media Queries, Advanced CSS animations with @keyframes and background video effect, 7-1 CSS Architecture with Sass (component-based design, BEM Methodology, reusable code), NPM ecosystem.
 
 **:star: Project Roadmap**
 
@@ -45,7 +45,7 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Stories
 
-- Booking
+:white_check_mark: Booking
 
 :large_blue_diamond: SPRINT 2 :large_blue_diamond:
 
