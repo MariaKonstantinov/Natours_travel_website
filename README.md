@@ -51,7 +51,7 @@ The project workflow is split into Sprints.
 
 :small_red_triangle_down: Complete sections:
 
-- Footer
+:white_check_mark: Footer
 
 - Navigation
 
