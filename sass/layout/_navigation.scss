@@ -1,0 +1,179 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    // the exact value isn't important here, we just need to give the highest possible here as we need the menu circle to be on top among all other elements
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    cursor: pointer;
+
+    // centering the span ||| menu icon lines
+    text-align: center;
+  }
+
+  &__background {
+    // menu circle icon
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    // fixed position is the same as absolute position with the difference that with fixed position the element doesn't change position as the page scrolls
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    // radial gradient starts in the middle of the element and goes from there in different directions
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+
+    // adding animation - we need to put 4 numbers to design c-b curve
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+
+    // making the nav invisible
+    opacity: 0;
+    width: 0;
+
+    // adding animation
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.25, 1.55);
+  }
+
+  &__list {
+    // connecting mixin "position" which contains position rules
+    @include position;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    // normal state
+    &:link,
+    &:visited {
+      // we need to always specify such elements as inline blocks for properties like paddings etc. to work on them
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+
+      background-image: linear-gradient(
+        120deg,
+        transparent,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 230%;
+      transition: all 0.4s;
+
+      span {
+        margin-right: 1rem;
+        display: inline-block;
+      }
+    }
+
+    // hover and active state
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      //   adding animation
+      transform: translateX(1rem);
+    }
+  }
+
+  //   FUNCTIONALITY
+  //   adding functionality to open nav menu (when the checkbox is checked, backgroudnd scales to cover all screen
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  //   making the nav text list visible
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+
+  //   ICON
+  &__icon {
+    position: relative;
+    // moving down the span ||| menu icon lines
+    margin-top: 3.5rem;
+
+    // instead of creating 3 span lines for nav icon in html, we create just 1, and use pseudo class before and after to make others
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    // for pseudo elements to work, we need to specify content property even if it is empty, and make display property
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+
+      //   adding functionality to make an X style icon on open
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  //   MENU ICON X STYLES
+  //   adding functionality to make an X style icon on open
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

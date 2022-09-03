@@ -53,7 +53,7 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Footer
 
-- Navigation
+:white_check_mark: Navigation
 
 - Popup
 
