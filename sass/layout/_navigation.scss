@@ -57,7 +57,7 @@
 
   &__list {
     // connecting mixin "position" which contains position rules
-    @include position;
+    @include absCenter;
     list-style: none;
     text-align: center;
     width: 100%;

@@ -194,7 +194,8 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$297</p>
                                 </div>
-                                <a href="#" class="btn btn_type_white">Book now</a>
+                                <!-- connecting our popup with button - #popup-->
+                                <a href="#popup" class="btn btn_type_white">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -229,7 +230,7 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$497</p>
                                 </div>
-                                <a href="#" class="btn btn_type_white">Book now</a>
+                                <a href="#popup" class="btn btn_type_white">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -264,7 +265,7 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$897</p>
                                 </div>
-                                <a href="#" class="btn btn_type_white">Book now</a>
+                                <a href="#popup" class="btn btn_type_white">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -432,6 +433,37 @@
             </div>
         </div>
     </footer>
+
+    <!-- POPUP SECTION --------------------------------------------------------->
+    <!-- connecting our popup with button - id=popup; so when the btn is clicked, the anchor will basically become this popup, so the popup here will become a target -->
+    <div class="popup" id="popup">
+        <div class="popup__content">
+            <div class="popup__left">
+                <img src="media/nat-8.jpg" alt="Tour photo" class="popup__img">
+                <img src="media/nat-9.jpg" alt="Tour photo" class="popup__img">
+            </div>
+            <div class="popup__right">
+                <!-- popup close button -->
+                <!-- we have #section-tours as a link here (when we hit it, it will move to this section, so this section will become a target instead of popup, so the pseudo class styles will no longer apply) -->
+                <!-- &times is html element -> X -->
+                <a href="#section-tours" class="popup__close">&times;</a>
+                <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+                <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before
+                    booking</h3>
+                <p class="popup__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat enim, imperdiet sit amet
+                    interdum quis, fringilla vitae urna. In eu vulputate odio. Etiam maximus pellentesque bibendum. Sed
+                    varius nibh vel metus interdum eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed ut hendrerit eros. Donec at nunc urna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat enim, imperdiet sit amet
+                    interdum quis, fringilla vitae urna. In eu vulputate odio. Etiam maximus pellentesque bibendum. Sed
+                    varius nibh vel metus interdum eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed ut hendrerit eros. Donec at nunc urna.
+                </p>
+                <a href="#" class="btn btn_type_green">Book now</a>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Grid section -->
