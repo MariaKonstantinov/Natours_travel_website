@@ -55,7 +55,7 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Navigation
 
-- Popup
+:white_check_mark: Popup
 
 :large_blue_diamond: SPRINT 3 :large_blue_diamond:
 
