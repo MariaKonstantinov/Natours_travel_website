@@ -18,6 +18,11 @@
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
   position: relative;
 
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
   &__logo-box {
     position: absolute;
     top: 4rem;
@@ -48,31 +53,40 @@
     /* Backface-visibility determins if the backpart of the element if visible/hidden when we transform it - fixes "shaking" of animation */
     backface-visibility: hidden;
     margin-bottom: 6rem;
-  }
 
-  &__text_type_main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
+    &_type_main {
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3.5rem;
 
-    /* 2 properties for animation to work - name and duration */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+      /* 2 properties for animation to work - name and duration */
+      animation-name: moveInLeft;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
 
-    /* some additional useful animation functions */
-    /* animation-delay: 3s; */
-    /* animation-iteration-count: 3; */
-  }
+      @include respond(phone) {
+        letter-spacing: 1rem;
+        font-size: 5rem;
+      }
 
-  &__text_type_sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
+      /* some additional useful animation functions */
+      /* animation-delay: 3s; */
+      /* animation-iteration-count: 3; */
+    }
 
-    /* Shorthand for animation to work */
-    animation: moveInRight 1s ease-out;
+    &_type_sub {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1.75rem;
+
+      /* Shorthand for animation to work */
+      animation: moveInRight 1s ease-out;
+
+      @include respond(phone) {
+        letter-spacing: 0.5rem;
+      }
+    }
   }
 }

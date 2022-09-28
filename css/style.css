@@ -1,3 +1,40 @@
+/* MEDIA QUERIES MANAGER --------------------------------------------------------->
+
+1. VALUES:
+
+0  - 600px: Phone
+
+600 - 900px: Tablet portrait
+
+900 - 1200px: Tablet landscape
+
+[1280 - 1800px]: Our normal styles apply
+
+1800px +: Big desktop
+
+
+2. BREAKPOINT ARGUMENT CHOICES:
+
+- phone
+
+- tab-port
+
+- tab-land
+
+- big-desktop
+
+3. ORDER:
+
+Base and Typography -> General Layout -> Grid -> Page Layout -> Components
+
+
+POPULARITY
+
+The most frequently used media queries are - tab-port (tablet in portrait - 900px) and phone (600px). So we place them in all parts across our web page to change them to look appropraiate whenever we see it's needed.
+
+For the landscape mode the most important this is what we did already in base.scss -> we decreased the entire page, zoomed it down by changing the font-size from 62.5% to  56.25% for html for width up untill 1200px (between 900 and 1200px)
+
+*/
 /* Header Animations */
 @keyframes moveInLeft {
   0% {
@@ -46,15 +83,37 @@
   /* borders and padding are no longer added to total width/heigh of elements */
   box-sizing: inherit; }
 
+/* REM CALCULATIONS EXPLAINED --------------------------------------------------------->
+
 /* we need to change our px to rem - as 1 rem is exactly the root font-size - 
-we do 10px as our root font-size, 1 rem is 10px, we devide now all px value of element by 10 */
-/* best practice to have this value in % - we devide 10 by 16 (default font-size is 16px) - 62.5% */
+we do 10px as our root font-size, 1 rem is 10px, we devide now all px value of element by 10
+best practice to have this value in % -> 10px/16px (default font-size is 16px) = 62.5%
+
+if we change the font size here, all the measurements in rem in our project will scale up or down according to this font size (more time efficient than px which we need to adjust manually in every part we used them) */
+/* MEDIA QUERIES VALUES AND ORDER EXPLAINED --------------------------------------------------------->
+
+we don't need to have a media query for the phone (max-width: 600px) as we also have next media query for tab-port (max-width: 900px); so if we have a phone with viewport width = 500px, both of media queries (for 600px and 900px) will apply which we don't need; so we start with max-width: 900px as our first media query; they both will still apply to 500px but we ALWAYS need to write larger media queries first and after the smaller (since both media queries apply, it will simply be the last declaration in order to be applied);
+
+in the MOBILE-FIRST approach we need to do the opposite -> to start with lower width and move up to the larger width */
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 /* general styles */
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 /* general styles */
 body {
@@ -62,8 +121,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: #777; }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -76,6 +134,12 @@ body {
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s; }
+  @media (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -98,9 +162,15 @@ body {
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important; }
+  @media (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem !important; }
+  @media (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 5rem !important; } }
 
 .u-margin-top-medium {
   margin-top: 8rem !important; }
@@ -204,15 +274,35 @@ body {
     z-index: 10;
     transition: all 0.2s;
     outline-offset: 2rem; }
+    @media (max-width: 56.25em) {
+      .composition__photo {
+        float: left;
+        position: relative;
+        width: 33.33333333%;
+        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2); } }
     .composition__photo_p1 {
       left: 0;
       top: -2rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo_p1 {
+          top: 0;
+          transform: scale(1.2); } }
     .composition__photo_p2 {
       right: 0;
       top: 2rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo_p2 {
+          top: -1rem;
+          transform: scale(1.3);
+          z-index: 100; } }
     .composition__photo_p3 {
       left: 20%;
       top: 10rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo_p3 {
+          top: 1rem;
+          left: 0;
+          transform: scale(1.1); } }
     .composition__photo:hover {
       transform: scale(1.05) translateY(-0.5rem);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
@@ -229,6 +319,9 @@ body {
   border-radius: 0.6rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s; }
+  @media (max-width: 56.25em) {
+    .feature-box {
+      padding: 2rem; } }
   .feature-box__icon {
     font-size: 6rem;
     margin-bottom: 0.5rem;
@@ -237,6 +330,9 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; }
+    @media (max-width: 56.25em) {
+      .feature-box__icon {
+        margin-bottom: 0; } }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
 
@@ -546,6 +642,10 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
   position: relative; }
+  @media (max-width: 37.5em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     top: 4rem;
@@ -569,31 +669,45 @@ body {
     /* Backface-visibility determins if the backpart of the element if visible/hidden when we transform it - fixes "shaking" of animation */
     backface-visibility: hidden;
     margin-bottom: 6rem; }
-  .header__text_type_main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /* 2 properties for animation to work - name and duration */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /* some additional useful animation functions */
-    /* animation-delay: 3s; */
-    /* animation-iteration-count: 3; */ }
-  .header__text_type_sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /* Shorthand for animation to work */
-    animation: moveInRight 1s ease-out; }
+    .header__text_type_main {
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3.5rem;
+      /* 2 properties for animation to work - name and duration */
+      animation-name: moveInLeft;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      /* some additional useful animation functions */
+      /* animation-delay: 3s; */
+      /* animation-iteration-count: 3; */ }
+      @media (max-width: 37.5em) {
+        .header__text_type_main {
+          letter-spacing: 1rem;
+          font-size: 5rem; } }
+    .header__text_type_sub {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1.75rem;
+      /* Shorthand for animation to work */
+      animation: moveInRight 1s ease-out; }
+      @media (max-width: 37.5em) {
+        .header__text_type_sub {
+          letter-spacing: 0.5rem; } }
 
 .row {
   max-width: 114rem;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  @media (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 3rem; } }
   .row::after {
     content: "";
     display: table;
@@ -602,6 +716,13 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+      @media (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
@@ -618,7 +739,11 @@ body {
 .footer {
   background-color: #333;
   padding: 10rem 0;
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  color: #f7f7f7; }
+  @media (max-width: 56.25em) {
+    .footer {
+      padding: 8rem 0; } }
   .footer__logo-box {
     text-align: center;
     margin-bottom: 8rem; }
@@ -629,6 +754,10 @@ body {
     border-top: 1px solid #777;
     padding-top: 2rem;
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .footer__navigation {
+        width: 100%;
+        text-align: center; } }
   .footer__list {
     list-style: none; }
   .footer__item {
@@ -651,6 +780,10 @@ body {
     padding-top: 2rem;
     width: 80%;
     float: right; }
+    @media (max-width: 56.25em) {
+      .footer__copyright {
+        width: 100%;
+        float: none; } }
 
 .navigation__checkbox {
   display: none; }
@@ -667,6 +800,14 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
   text-align: center; }
+  @media (max-width: 56.25em) {
+    .navigation__button {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__button {
+      top: 3.5rem;
+      right: 3.5rem; } }
 
 .navigation__background {
   height: 6rem;
@@ -678,6 +819,14 @@ body {
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+  @media (max-width: 56.25em) {
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__background {
+      top: 3.5rem;
+      right: 3.5rem; } }
 
 .navigation__nav {
   height: 100vh;
@@ -776,19 +925,31 @@ body {
   transform: skewY(-7deg); }
   .section-features > * {
     transform: skewY(7deg); }
+  @media (max-width: 56.25em) {
+    .section-features {
+      padding: 10rem 0; } }
 
 .section-tours {
   background-color: #f7f7f7;
   padding: 25rem 0 20rem 0;
   margin-top: -15rem; }
+  @media (max-width: 56.25em) {
+    .section-tours {
+      padding: 20rem 0 10rem 0; } }
 
 .section-stories {
   padding: 15rem 0;
   position: relative; }
+  @media (max-width: 56.25em) {
+    .section-stories {
+      padding: 10rem 0; } }
 
 .section-book {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+  @media (max-width: 56.25em) {
+    .section-book {
+      padding: 10rem 0; } }
 
 .book {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../media/nat-10.jpg);

@@ -9,15 +9,48 @@
   box-sizing: inherit;
 }
 
+/* REM CALCULATIONS EXPLAINED --------------------------------------------------------->
+
 /* we need to change our px to rem - as 1 rem is exactly the root font-size - 
-we do 10px as our root font-size, 1 rem is 10px, we devide now all px value of element by 10 */
-/* best practice to have this value in % - we devide 10 by 16 (default font-size is 16px) - 62.5% */
+we do 10px as our root font-size, 1 rem is 10px, we devide now all px value of element by 10
+best practice to have this value in % -> 10px/16px (default font-size is 16px) = 62.5%
+
+if we change the font size here, all the measurements in rem in our project will scale up or down according to this font size (more time efficient than px which we need to adjust manually in every part we used them) */
+
+/* MEDIA QUERIES VALUES AND ORDER EXPLAINED --------------------------------------------------------->
+
+we don't need to have a media query for the phone (max-width: 600px) as we also have next media query for tab-port (max-width: 900px); so if we have a phone with viewport width = 500px, both of media queries (for 600px and 900px) will apply which we don't need; so we start with max-width: 900px as our first media query; they both will still apply to 500px but we ALWAYS need to write larger media queries first and after the smaller (since both media queries apply, it will simply be the last declaration in order to be applied);
+
+in the MOBILE-FIRST approach we need to do the opposite -> to start with lower width and move up to the larger width */
+
 html {
-  // this defines what 1rem is
+  // this defines what 1rem is; 10px/16px (default font-size is 16px) = 62.5%
   font-size: 62.5%;
+
+  // 1rem = 9px; 9px/16px = 56.25%
+  // tab-land checks if width is < 1200 ?
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  // if we want for the landscape tablet to have 1rem = 8px (not 10rem as we defined for html above) -> 8px/16px = 50%
+  // tab-port checks if width is < 900 ?
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  // 1rem = 12px; 12px/16px = 75%
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
 }
 
 /* general styles */
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

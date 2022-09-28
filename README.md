@@ -61,7 +61,7 @@ The project workflow is split into Sprints.
 
 :small_red_triangle_down: Complete sections:
 
-- Add Media Queries
+:white_check_mark: Add Media Queries
 
 :small_red_triangle_down: To do:
 

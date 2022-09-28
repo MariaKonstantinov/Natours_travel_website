@@ -1,4 +1,4 @@
-// clearfix is a way for an element to clear its child elements automatically without additional markup, generally used in float layouts; always ned to specify the content property (even if it is empty "")
+// CLEARFIX is a way for an element to clear its child elements automatically without additional markup, generally used in float layouts; always ned to specify the content property (even if it is empty "")
 // we will include this mixin in our grid, so the & will then transform into a row (row::after {})
 @mixin clearfix {
   &::after {
@@ -15,4 +15,78 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* MEDIA QUERIES MANAGER --------------------------------------------------------->
+
+1. VALUES:
+
+0  - 600px: Phone
+
+600 - 900px: Tablet portrait
+
+900 - 1200px: Tablet landscape
+
+[1280 - 1800px]: Our normal styles apply
+
+1800px +: Big desktop
+
+
+2. BREAKPOINT ARGUMENT CHOICES:
+
+- phone
+
+- tab-port
+
+- tab-land
+
+- big-desktop
+
+3. ORDER:
+
+Base and Typography -> General Layout -> Grid -> Page Layout -> Components
+
+
+POPULARITY
+
+The most frequently used media queries are - tab-port (tablet in portrait - 900px) and phone (600px). So we place them in all parts across our web page to change them to look appropraiate whenever we see it's needed.
+
+For the landscape mode the most important this is what we did already in base.scss -> we decreased the entire page, zoomed it down by changing the font-size from 62.5% to  56.25% for html for width up untill 1200px (between 900 and 1200px)
+
+*/
+
+// EM CALCULATIONS AND USAGE EXPLAINED --------------------------------------------------------->
+
+// em and rem in media queries are not affected by a root font size setting, it is always equal to the font size which is coming from the browser, and if it is 16px as default -> it will be 16px; if user changes it to 20px -> it will be 20px no matter what we have in our base font defenition. There is a common conclusion that em is the best unit for media queries (not rem, which we used in our project parts); em will adjust better to the font size that user set for the browser
+
+// 1em = 16px;
+
+// 600px / 16px = 37.5em;
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // 900px / 16px = 56.25em;
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  // 1200px / 16px = 75em;
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  // 1800px / 16px = 112.5em;
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
 }

@@ -9,6 +9,10 @@
   //   setting animation transition for feature-box on hover
   transition: transform 0.3s;
 
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
   &__icon {
     // the icon font is text in fact
     font-size: 6rem;
@@ -24,6 +28,10 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
   }
 
   //   animation on hover
