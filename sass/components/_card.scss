@@ -211,4 +211,57 @@
     font-size: 6rem;
     font-weight: 100;
   }
+
+  // we are writing a big media query at the end because we will be changing a lot the design for specific screen width (900 px)
+
+  // MEDIA QUERY FOR TAB-PORT 900px -------------------------------------------------------------->
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: 0.6rem;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+
+      // we change absolute position to relative as we no longer have 2 sides of a card, we have just 1 side
+      position: relative;
+      box-shadow: none;
+
+      // BACK side of card
+      &_back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    // adding card rotation functionality on hover - across Y, 180 deg
+    //   when we hover the card, we want the card__side to transform
+    &:hover &__side_front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // BACK SIDE styling
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0%;
+      transform: translate(0%);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
+  }
 }

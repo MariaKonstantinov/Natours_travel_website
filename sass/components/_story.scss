@@ -11,6 +11,16 @@
 
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     width: 15rem;
     height: 15rem;
@@ -23,6 +33,10 @@
     // best option to add space around the element which is floated - not to use margins, but to use transform property
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   // images for responsive design always need a width property specified
@@ -38,6 +52,10 @@
 
   &__text {
     transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   //   we need this caption to be exactly centered on the top of the image, so we use position:absolute and set the parent conatiner to position:relative (__shape)
