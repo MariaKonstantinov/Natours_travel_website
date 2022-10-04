@@ -10,10 +10,10 @@
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem !important;
+  margin-bottom: 6rem !important;
 
   @include respond(tab-port) {
-    margin-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
   }
 }
 
@@ -26,7 +26,9 @@
 }
 
 .u-margin-top-small {
-  margin-top: 1.5rem !important;
+  @include respond(tab-port) {
+    margin-top: 2rem !important;
+  }
 }
 
 .u-margin-top-medium {

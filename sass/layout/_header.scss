@@ -2,11 +2,12 @@
 .header {
   /* at every point the size of this element should be 95% of the viewport height */
   height: 95vh;
+  // for a screen without high resolution we include hero-small image with 1200px resolution
   background-image: linear-gradient(
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(../media/hero.jpg);
+    url(../media/hero-small.jpg);
   /* whatever the width of the viewport is, cover always fits the element in the box */
   background-size: cover;
   /* whatever the width of the viewport is, the top of image will stay at the top of container */
@@ -17,6 +18,17 @@
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
   position: relative;
+
+  // adding media query: 192 dots per inch -> this is resolution of Apple retina screen and it's usually used as a reference in such cases; whenever the resolution is higher than 192dpi - the code below will be applied
+  // for a screen with high resolution we include hero image with higher resolution
+  // we add a second condition - min-width - with "and" keyword: condition when the width is larger than 600px
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../media/hero.jpg);
+  }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
