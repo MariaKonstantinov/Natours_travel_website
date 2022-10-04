@@ -65,7 +65,7 @@ The project workflow is split into Sprints.
 
 :small_red_triangle_down: To do:
 
-- Fix image responsiveness
+:white_check_mark: Fix image responsiveness
 
 - Testing for browser support & fix bugs
 

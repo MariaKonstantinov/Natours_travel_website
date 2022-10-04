@@ -94,12 +94,30 @@
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <img src="media/nat-1-large.jpg" alt="photo of forest"
+
+                        <!-- RESOLUTION SWICHING: allows the browser to choose the best image for the current viewport and pixel density situation; using "width descriptor" to inform the browser about the width of our images so that the browser won't need to download them to access that information -> 300px we write as 300w; we also need to use "sizes" attribute to inform the browser about the width of the image at a different viewport width -->
+                        <!-- when we choose 900px width, we see the width of 1 image is about 171px, so 171 / 900 = 0.19 -> 20% meaning that the image here has a width of 20% of the viewport width; plus we add a default size of 300px -->
+                        <!-- we add a "src" in the end for the case if the srcset is not supported by user's browser -->
+                        <!-- the solution below includes DENSITY SWITCHING and in combination with RESOLUTION SWICHING it is a good approach -->
+                        <img srcset="media/nat-1.jpg 300w, media/nat-1-large.jpg 1000w"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px" alt="photo of forest"
+                            class="composition__photo composition__photo_p1" src="media/nat-1-large.jpg">
+
+                        <img srcset="media/nat-2.jpg 300w, media/nat-2-large.jpg 1000w"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                            alt="photo of a man riding  a bicycle in mountains"
+                            class="composition__photo composition__photo_p2" src="media/nat-2-large.jpg">
+
+                        <img srcset="media/nat-3.jpg 300w, media/nat-3-large.jpg 1000w"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px" alt="photo of mountains"
+                            class="composition__photo composition__photo_p3" src="media/nat-3-large.jpg">
+
+                        <!-- <img src="media/nat-1-large.jpg" alt="photo of forest"
                             class="composition__photo composition__photo_p1">
                         <img src="media/nat-2-large.jpg" alt="photo of a man riding  a bicycle in mountains"
                             class="composition__photo composition__photo_p2">
                         <img src="media/nat-3-large.jpg" alt="photo of mountains"
-                            class="composition__photo composition__photo_p3">
+                            class="composition__photo composition__photo_p3"> -->
                     </div>
                 </div>
             </div>
@@ -418,7 +436,9 @@
                     media="(max-width: 37.5em)">
 
                 <!-- DENSITY SWITCHING: adding responsiveness to our logo for different screen density - screen resolutions -> "img srcset" and  density description "1x and 2x"-->
-                <img srcset="media/logo-green-1x.png 1x, media/logo-green-2x.png 2x" alt="full logo">
+                <!-- we add a "src" in the end for the case if the srcset is not supported by user's browser -->
+                <img srcset="media/logo-green-1x.png 1x, media/logo-green-2x.png 2x" alt="full logo"
+                    src="media/logo-green-2x.png">
             </picture>
 
         </div>
