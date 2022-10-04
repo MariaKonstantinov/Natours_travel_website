@@ -409,8 +409,18 @@
 
     <!-- FOOTER SECTION --------------------------------------------------------->
     <footer class="footer">
+
         <div class="footer__logo-box">
-            <img src="media/logo-green-2x.png" alt="full logo" class="footer__logo">
+            <!-- ART DIRECTION: adding responsiveness to our logo for different viewport width -> adding media query here (max-width: 600px = 37.5em); we want the art direction to happen at the breakpoint of phone, when the width is less than 600px - we will display smaller sized logo; plus we are adding DENSITY SWITCHING here for different screen resolutions -->
+            <!-- in "picture" element we can spesify multiple sources for 1 image and write a media query like in CSS -->
+            <picture class="footer__logo">
+                <source srcset="media/logo-green-small-1x.png 1x, media/logo-green-small-2x.png 2x"
+                    media="(max-width: 37.5em)">
+
+                <!-- DENSITY SWITCHING: adding responsiveness to our logo for different screen density - screen resolutions -> "img srcset" and  density description "1x and 2x"-->
+                <img srcset="media/logo-green-1x.png 1x, media/logo-green-2x.png 2x" alt="full logo">
+            </picture>
+
         </div>
         <div class="row">
             <div class="col-1-of-2">
