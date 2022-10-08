@@ -26,13 +26,26 @@
     height: 15rem;
     // float CSS property places element on the left/right side of its container, allowing text and inline elements to wrap around it
     float: left;
-    // shape-outside property: hast to be floated, has to have height and width; this property is used to define the shape that the adjacent inline content may wrap around
-    shape-outside: circle(50% at 50% 50%);
-    // we use clip-path property here to define an element in form of a circle
-    clip-path: circle(50% at 50% 50%);
+
     // best option to add space around the element which is floated - not to use margins, but to use transform property
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    // shape-outside property: hast to be floated, has to have height and width; this property is used to define the shape that the adjacent inline content may wrap around
+    shape-outside: circle(50% at 50% 50%);
+
+    // we use clip-path property here to define an element in form of a circle
+
+    // adding feature query for Firefox browser
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

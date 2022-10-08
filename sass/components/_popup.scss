@@ -12,6 +12,16 @@
   visibility: hidden;
   transition: all 0.3s;
 
+  // the concept of GRACEFUL DEGRADATION ------------------------------------------------------>
+  // adding a "blur" effect for the background (when the popup is opened) with backdrop-filter
+  // adding browser support with @supports (if backdrop-filter proeprties are supported by browser, we want the styles below in {} to be applied)
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  }
+
   &__content {
     @include absCenter;
     width: 75%;
@@ -78,14 +88,16 @@
     }
   }
 
-  //   we have a pseudo class called "target" which applies to the element which is the target; so when we click on a button "Book now" on the card element, in url we have #popup and so that is the target. we have id "popup" on the whole div "popup" (so the entire div is a target), so we have the target pseudo class available on it, so then w ecan select that element using that pseudo class and specify our styles on it
+  /*   FUNCTIONALITY FOR POPUP OPENED STATE ---------------------------------------------------> 
+  
+  we have a pseudo class called "TARGET" which applies to the element (popup) which is the target; so when we click on a button "Book now" on the card element, in url we have #popup and so that is the target. we have id "popup" on the whole div "popup" (so the entire div is a target), so we have the target pseudo class available on it, so then we can select that element using that pseudo class and specify our styles on it */
 
   &:target {
     opacity: 1;
     visibility: visible;
   }
 
-  //   popup close button
+  //   popup close button functionality
   &__close {
     &:link,
     &:visited {

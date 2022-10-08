@@ -185,7 +185,7 @@ body {
 /* Header Button */
 /* btn:link is a pseudo class, special state of a selector, when it is an anchor element, so it functions as a link */
 .btn {
-  /* when the button is clicked */
+  /* functionality for the button clicked state */
   /* after pseudo element adds like a "virtual" element right after our element and we can style it */
   /* ccreating a new class because we want only this specific animation for 1 specific button so we don't apply it to main btn-white class */ }
   .btn, .btn:link, .btn:visited {
@@ -247,7 +247,7 @@ body {
     /* animation fill mode - backwards - applies styles of 0% before animation starts */
     animation-fill-mode: backwards; }
 
-/* About section Button */
+/* About section Button ---------------------------------------------------------------------- */
 .btn-text {
   /* when the button is clicked */ }
   .btn-text:link, .btn-text:visited {
@@ -354,6 +354,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 0.6rem;
     overflow: hidden;
@@ -485,10 +486,18 @@ body {
     width: 15rem;
     height: 15rem;
     float: left;
-    shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    position: relative; }
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    shape-outside: circle(50% at 50% 50%); }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: none; } }
     @media (max-width: 37.5em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
@@ -628,7 +637,15 @@ body {
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  /*   FUNCTIONALITY FOR POPUP OPENED STATE ---------------------------------------------------> 
+  
+  we have a pseudo class called "TARGET" which applies to the element (popup) which is the target; so when we click on a button "Book now" on the card element, in url we have #popup and so that is the target. we have id "popup" on the whole div "popup" (so the entire div is a target), so we have the target pseudo class available on it, so then we can select that element using that pseudo class and specify our styles on it */ }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.3); } }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -693,7 +710,7 @@ body {
 /* Header section */
 .header {
   /* at every point the size of this element should be 95% of the viewport height */
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../media/hero-small.jpg);
   /* whatever the width of the viewport is, cover always fits the element in the box */
   background-size: cover;
@@ -704,7 +721,12 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
   position: relative; }
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
     .header {
       background-image: linear-gradient(rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../media/hero.jpg); } }
   @media (max-width: 37.5em) {

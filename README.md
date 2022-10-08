@@ -67,7 +67,9 @@ The project workflow is split into Sprints.
 
 :white_check_mark: Fix image responsiveness
 
-- Testing for browser support & fix bugs
+:white_check_mark: Testing for browser support & fix bugs
+
+- Final stage: setting up a simple build process
 
 **:star: Course Link (UDEMY)**
 

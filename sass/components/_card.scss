@@ -20,6 +20,8 @@
     left: 0;
     width: 100%;
     // so we only see 1 part at 1 time (front or back), and not them both at the same time -> backspace visibility hidden
+    // adding prefix for Safari browser
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
     border-radius: 0.6rem;

@@ -37,7 +37,7 @@
     }
   }
 
-  /* when the button is clicked */
+  /* functionality for the button clicked state */
   &:active,
   &:focus {
     outline: none;
@@ -93,7 +93,7 @@
   }
 }
 
-/* About section Button */
+/* About section Button ---------------------------------------------------------------------- */
 .btn-text {
   &:link,
   &:visited {

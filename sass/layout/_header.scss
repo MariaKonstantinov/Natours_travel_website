@@ -1,7 +1,7 @@
 /* Header section */
 .header {
   /* at every point the size of this element should be 95% of the viewport height */
-  height: 95vh;
+  height: 85vh;
   // for a screen without high resolution we include hero-small image with 1200px resolution
   background-image: linear-gradient(
       rgba($color-primary-light, 0.8),
@@ -19,10 +19,20 @@
   /* we add relative position to parent element (header) so that logo-box element's position absolute is related to header */
   position: relative;
 
+  // adding FEATURE QUERY for the case is browser doesn't support clip-path property
+  // we can put any value in polygon(), so we put (0 0)
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
   // adding media query: 192 dots per inch -> this is resolution of Apple retina screen and it's usually used as a reference in such cases; whenever the resolution is higher than 192dpi - the code below will be applied
   // for a screen with high resolution we include hero image with higher resolution
   // we add a second condition - min-width - with "and" keyword: condition when the width is larger than 600px
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  // adding Safari browser support features with -webkit-min-device-pixel-ratio prefix; value 2 is 2x which = 192dpi
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
     background-image: linear-gradient(
         rgba($color-primary-light, 0.8),
         rgba($color-primary-dark, 0.8)
